@@ -23,6 +23,30 @@ Step 2: Run the Python Script
 1. Install the required Python packages by running pip install -r requirements.txt
 2. Run python main.py to execute the script.
 
+Step 3: Verify the Result as Expected
+
+Open a New Terminal and Run the Command:
+awslocal sqs receive-message --queue-url http://localhost:4566/000000000000/login-queue
+
+Result: This command will retrieve and display the original data received from the AWS SQS queue in JSON format.
+
+Open a New Terminal and Run the Command:
+docker exec -it etl_application-master-postgres-1 psql -U postgres
+
+Result: This command will open an interactive PostgreSQL session within the Docker container named etl_application-master-postgres-1 (this can be different accordig to your postgres image name). 
+
+Connect to the PostgreSQL Database: 
+\c postgres
+Result: This command will connect you to the postgres database.
+
+List All Tables: 
+\dt
+Result: This command will list all the tables in the connected database.
+
+Query the user_logins Table:
+SELECT * FROM user_logins;
+
+Note: Verify that the table contains all the AWS SQS values with the transformation of Personally Identifiable Information (PII). Try running the process again to add more data to the table. Comapre original data and masked postgres data. 
 
 ## Questions
 
