@@ -37,10 +37,12 @@ Result: This command will open an interactive PostgreSQL session within the Dock
 
 Connect to the PostgreSQL Database: 
 \c postgres
+
 Result: This command will connect you to the postgres database.
 
 List All Tables: 
 \dt
+
 Result: This command will list all the tables in the connected database.
 
 Query the user_logins Table:
